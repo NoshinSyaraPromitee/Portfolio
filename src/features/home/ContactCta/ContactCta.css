@@ -42,3 +42,24 @@
 .contact-btn:hover {
   background: #8b6a2f;
 }
+
+/* ---------- phones: shorter section, smaller heading ---------- */
+@media (max-width: 600px) {
+  .ballpit-section {
+    min-height: 420px;
+    padding: 0;
+  }
+  .ballpit-content {
+    height: 420px;
+    padding: 20px 24px;
+  }
+  .ballpit-content h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .contact-btn {
+    margin-top: 20px;
+    padding: 12px 32px;
+  }
+}
