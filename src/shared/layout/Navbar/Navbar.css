@@ -220,7 +220,8 @@
   .nav-drop {
     position: static;
     opacity: 1;
-    visibility: visible;
+    /* follow the menu: hidden (and not tappable) while the menu is closed */
+    visibility: inherit;
     transform: none;
     border: 0;
     box-shadow: none;
