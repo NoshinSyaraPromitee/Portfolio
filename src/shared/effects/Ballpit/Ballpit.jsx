@@ -2,6 +2,8 @@ import { useRef, useEffect } from "react";
 import "./Ballpit.css";
 
 const DEFAULT_COLORS = ["#C9A84C", "#D9B96B", "#F7F1E3", "#8B6A2F"];
+const BURST_RADIUS = 160;
+const BURST_FORCE = 9;
 
 function Ballpit({
   count = 30,
@@ -86,24 +88,75 @@ function Ballpit({
     };
     animate();
 
-    const move = (e) => {
+    // position of a mouse or finger, relative to the canvas
+    const pointAt = (clientX, clientY) => {
       const rect = canvas.getBoundingClientRect();
-      mouse.current.x = e.clientX - rect.left;
-      mouse.current.y = e.clientY - rect.top;
+      mouse.current.x = clientX - rect.left;
+      mouse.current.y = clientY - rect.top;
     };
-    const leave = () => {
+    const clear = () => {
       mouse.current.x = -1000;
       mouse.current.y = -1000;
     };
 
-    canvas.addEventListener("mousemove", move);
-    canvas.addEventListener("mouseleave", leave);
+    // tap / click: knock nearby balls away
+    const burst = () => {
+      const { x, y } = mouse.current;
+      for (const b of balls) {
+        const dx = b.x - x;
+        const dy = b.y - y;
+        const dist = Math.hypot(dx, dy) || 1;
+        if (dist < BURST_RADIUS) {
+          const force = (1 - dist / BURST_RADIUS) * BURST_FORCE;
+          b.vx += (dx / dist) * force;
+          b.vy += (dy / dist) * force - 2;
+        }
+      }
+    };
+
+    // mouse
+    const onMouseMove = (e) => pointAt(e.clientX, e.clientY);
+    const onMouseDown = (e) => {
+      pointAt(e.clientX, e.clientY);
+      burst();
+    };
+
+    // touch (passive, so the page still scrolls normally)
+    let releaseTimer;
+    const onTouchStart = (e) => {
+      const t = e.touches[0];
+      if (!t) return;
+      clearTimeout(releaseTimer);
+      pointAt(t.clientX, t.clientY);
+      burst();
+    };
+    const onTouchMove = (e) => {
+      const t = e.touches[0];
+      if (t) pointAt(t.clientX, t.clientY);
+    };
+    const onTouchEnd = () => {
+      releaseTimer = setTimeout(clear, 250);
+    };
+
+    canvas.addEventListener("mousemove", onMouseMove);
+    canvas.addEventListener("mousedown", onMouseDown);
+    canvas.addEventListener("mouseleave", clear);
+    canvas.addEventListener("touchstart", onTouchStart, { passive: true });
+    canvas.addEventListener("touchmove", onTouchMove, { passive: true });
+    canvas.addEventListener("touchend", onTouchEnd);
+    canvas.addEventListener("touchcancel", onTouchEnd);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
-      canvas.removeEventListener("mousemove", move);
-      canvas.removeEventListener("mouseleave", leave);
+      clearTimeout(releaseTimer);
+      canvas.removeEventListener("mousemove", onMouseMove);
+      canvas.removeEventListener("mousedown", onMouseDown);
+      canvas.removeEventListener("mouseleave", clear);
+      canvas.removeEventListener("touchstart", onTouchStart);
+      canvas.removeEventListener("touchmove", onTouchMove);
+      canvas.removeEventListener("touchend", onTouchEnd);
+      canvas.removeEventListener("touchcancel", onTouchEnd);
     };
   }, [count, gravity, friction, wallBounce, followCursor, colors]);
 
