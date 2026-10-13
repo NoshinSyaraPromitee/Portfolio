@@ -23,7 +23,7 @@ function FilterPill({ category, count, isActive, onClick }) {
 function ProjectCard({ project }) {
   const cover = project.images && project.images[0];
   const placeholder =
-    project.placeholderText || (project.video ? "See video in Youtube" : "Add project image");
+    project.placeholderText || (project.video ? "See video on YouTube" : "Add project image");
 
   return (
     <Link to={`/projects/${project.id}`} className="project-card">

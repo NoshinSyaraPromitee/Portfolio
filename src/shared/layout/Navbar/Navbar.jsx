@@ -13,6 +13,14 @@ const main = [
   { to: "/certificates", label: "Certificates" }
 ];
 
+// always visible in the phone navbar; everything else lives in the hamburger menu
+const quick = [
+  { to: "/", label: "Home" },
+  { to: "/projects", label: "Projects" },
+  { to: "/contact", label: "Contact" }
+];
+const isQuick = (to) => quick.some((q) => q.to === to);
+
 const more = [
   { to: "/ideas", label: "Ideas" },
   { to: "/blog", label: "Blog" },
@@ -48,9 +56,29 @@ function Navbar({ darkMode, onToggleTheme }) {
   return (
     <header className={scrolled ? "nav scrolled" : "nav"}>
       <div className="nav-inner">
+        <nav className="nav-quick" aria-label="Quick links">
+          {quick.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              className="nav-quick-link"
+              onClick={shut}
+            >
+              {l.label}
+            </NavLink>
+          ))}
+        </nav>
+
         <nav className={menu ? "nav-menu open" : "nav-menu"} aria-label="Primary">
           {main.map((l) => (
-            <NavLink key={l.to} to={l.to} end={l.to === "/"} className="nav-link" onClick={shut}>
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              className={isQuick(l.to) ? "nav-link in-quick" : "nav-link"}
+              onClick={shut}
+            >
               {l.label}
             </NavLink>
           ))}
@@ -73,7 +101,7 @@ function Navbar({ darkMode, onToggleTheme }) {
             </div>
           </div>
 
-          <NavLink to="/contact" className="nav-cta" onClick={shut}>
+          <NavLink to="/contact" className="nav-cta in-quick" onClick={shut}>
             Contact
           </NavLink>
         </nav>

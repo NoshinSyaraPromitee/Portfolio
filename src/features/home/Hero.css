@@ -86,29 +86,61 @@
 .hero-buttons .cv-dropdown-toggle {
   height: 54px;
 }
-/* Download CV: same colours and hover as View Projects */
+/* ---------- Hero buttons: View Projects + Download CV ----------
+   resting = outline only, hover / pressed / menu open = filled */
+.hero .hero-buttons .primary-btn,
 .hero .hero-buttons .cv-dropdown-toggle {
   min-width: 190px;
   height: 54px;
   padding: 0 30px;
-  background: var(--primary);
-  color: var(--on-primary);
-  border: 1px solid var(--primary);
   border-radius: 14px;
   font-size: 16px;
-  box-shadow: var(--shadow-sm);
-}
-html:not(.dark-theme) .hero .hero-buttons .cv-dropdown-toggle {
-  background: linear-gradient(135deg, #db8d12 0%, #cc810a 45%, #a86504 100%);
-  border: 1px solid rgba(255, 214, 140, 0.7);
-  color: #ffffff;
-  box-shadow:
-    0 12px 26px -12px rgba(168, 101, 4, 0.75),
-    0 0 0 1px rgba(255, 255, 255, 0.14) inset;
-}
-.hero .hero-buttons .cv-dropdown-toggle:hover {
-  filter: brightness(0.85);
   box-shadow: none;
+  filter: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* dark theme: golden text + border on a transparent background */
+.dark-theme .hero .hero-buttons .primary-btn,
+.dark-theme .hero .hero-buttons .cv-dropdown-toggle {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.dark-theme .hero .hero-buttons .primary-btn:hover,
+.dark-theme .hero .hero-buttons .primary-btn:active,
+.dark-theme .hero .hero-buttons .primary-btn:focus-visible,
+.dark-theme .hero .hero-buttons .cv-dropdown-toggle:hover,
+.dark-theme .hero .hero-buttons .cv-dropdown-toggle:active,
+.dark-theme .hero .hero-buttons .cv-dropdown-toggle:focus-visible,
+.dark-theme .hero .hero-buttons .cv-dropdown-toggle[aria-expanded="true"] {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+  filter: none;
+}
+
+/* light theme: dark text + border on a transparent background */
+html:not(.dark-theme) .hero .hero-buttons .primary-btn,
+html:not(.dark-theme) .hero .hero-buttons .cv-dropdown-toggle {
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+html:not(.dark-theme) .hero .hero-buttons .primary-btn:hover,
+html:not(.dark-theme) .hero .hero-buttons .primary-btn:active,
+html:not(.dark-theme) .hero .hero-buttons .primary-btn:focus-visible,
+html:not(.dark-theme) .hero .hero-buttons .cv-dropdown-toggle:hover,
+html:not(.dark-theme) .hero .hero-buttons .cv-dropdown-toggle:active,
+html:not(.dark-theme) .hero .hero-buttons .cv-dropdown-toggle:focus-visible,
+html:not(.dark-theme) .hero .hero-buttons .cv-dropdown-toggle[aria-expanded="true"] {
+  background: linear-gradient(135deg, #db8d12 0%, #cc810a 45%, #a86504 100%);
+  color: #ffffff;
+  border-color: #cc810a;
+  filter: none;
 }
 .hero-right {
   display: flex;
@@ -141,6 +173,20 @@ html:not(.dark-theme) .hero .hero-buttons .cv-dropdown-toggle {
 .explore-sub {
   color: var(--text);
   font-size: 15px;
+}
+@media (min-width: 769px) {
+  .hero {
+    padding-top: 150px;
+  }
+  .hero-name {
+    margin-bottom: 40px;
+  }
+  .hero-role {
+    margin-bottom: 44px;
+  }
+  .hero-buttons {
+    margin: 0 0 40px;
+  }
 }
 @media (max-width: 992px) {
   .hero-grid {

@@ -229,13 +229,18 @@ PROJECT GRID + CARDS
   overflow: hidden;
   margin-bottom: 18px;
 }
+.project-stack {
+  column-gap: 0;
+  row-gap: 4px;
+}
 .project-stack span {
-  background: #efe3bf;
-  color: #705820;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 20px;
+  color: var(--brown-muted);
+  font-size: 13px;
+}
+/* dot between items */
+.project-stack span + span::before {
+  content: "\00b7";
+  margin: 0 8px;
 }
 .project-github {
   display: inline-flex;
