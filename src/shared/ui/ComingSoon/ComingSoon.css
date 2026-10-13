@@ -1,0 +1,59 @@
+.cs-page {
+  min-height: 100vh;
+  padding: 120px 8%;
+  background: var(--background);
+}
+.cs-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.cs-title {
+  margin: 0 0 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 60px;
+  color: var(--dark);
+}
+.cs-subtitle {
+  margin: 0;
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text);
+}
+.cs-card {
+  margin-top: 36px;
+  padding: 40px 32px;
+  border: 1px dashed rgba(201, 168, 76, 0.5);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.cs-label {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  color: var(--dark);
+}
+.cs-card p {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .cs-page {
+    padding: 100px 6%;
+  }
+  .cs-title {
+    font-size: 44px;
+  }
+  .cs-card {
+    padding: 28px 22px;
+  }
+}
+@media (max-width: 480px) {
+  .cs-page {
+    padding: 84px 16px 40px;
+  }
+}

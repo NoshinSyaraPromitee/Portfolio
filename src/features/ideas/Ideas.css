@@ -1,0 +1,178 @@
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.idea-card {
+  background: var(--white);
+  border: 1px dashed rgba(201, 168, 76, 0.5);
+  border-radius: 16px;
+  padding: 24px;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.idea-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-style: solid;
+}
+
+.idea-status {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.status-planning {
+  background: rgba(201, 168, 76, 0.16);
+  color: #b68b3a;
+}
+.status-in-progress {
+  background: rgba(55, 138, 221, 0.14);
+  color: #185fa5;
+}
+.status-on-hold {
+  background: rgba(212, 83, 126, 0.14);
+  color: #993556;
+}
+
+.idea-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.idea-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.idea-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.idea-stack span {
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--background2);
+  color: var(--dark);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.idea-card .video-embed {
+  margin-bottom: 16px;
+}
+@media (min-width: 700px) {
+  .ideas-grid .has-video {
+    grid-column: span 2;
+  }
+}
+
+/* ---------- Ideas v2: media, lists, badges ---------- */
+.idea-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.idea-tag {
+  background: rgba(120, 120, 120, 0.16);
+  color: var(--text);
+}
+.idea-event {
+  font:
+    500 13.5px "Jost",
+    sans-serif;
+  color: var(--primary);
+  margin: -2px 0 14px;
+}
+
+.idea-image-link {
+  display: block;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+.idea-image {
+  display: block;
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.idea-image-hint {
+  display: block;
+  margin-top: 8px;
+  font:
+    500 12.5px "Jost",
+    sans-serif;
+  color: var(--text);
+}
+
+.idea-subhead {
+  margin: 4px 0 8px;
+  font:
+    600 12px "Jost",
+    sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.idea-list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  list-style: disc;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text);
+}
+/* ---------- Ideas v3: plain-text tag ---------- */
+.idea-status.idea-tag {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--text);
+  font:
+    600 12px "Jost",
+    sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+/* ---------- Ideas v4: gallery + github link ---------- */
+.idea-gallery {
+  margin-bottom: 16px;
+}
+.idea-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font:
+    600 13px "Jost",
+    sans-serif;
+  text-decoration: none;
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s;
+}
+.idea-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}

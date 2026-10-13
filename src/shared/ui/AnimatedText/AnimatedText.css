@@ -1,0 +1,47 @@
+.animated-title {
+  display: inline-block;
+
+  color: var(--primary);
+
+  font-weight: 600;
+
+  min-height: 35px;
+
+  transform-origin: center;
+}
+
+.show {
+  animation: flipIn 0.4s forwards;
+}
+
+.hide {
+  animation: flipOut 0.35s forwards;
+}
+
+@keyframes flipOut {
+  0% {
+    opacity: 1;
+
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    opacity: 0;
+
+    transform: rotateX(-90deg);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: rotateX(0deg);
+  }
+}

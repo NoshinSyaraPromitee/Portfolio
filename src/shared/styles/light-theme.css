@@ -1,0 +1,195 @@
+/* =====================================================
+LIGHT THEME: "Ivory & Amber"  (accent #CC810A)
+Only applies when NOT in dark mode.
+===================================================== */
+html:not(.dark-theme) {
+  --background: #fbf1e2;
+  --background2: #efddc2;
+  --primary: #cc810a;
+  --primaryLight: #e8b04a;
+  --dark: #3a2410;
+  --text: #6b5238;
+  --white: #fffcf7;
+  --surface: #fffbf4;
+  --surface-alt: #f6e7cf;
+  --border: rgba(204, 129, 10, 0.35);
+  --on-primary: #ffffff;
+  --shadow: 0 18px 40px -18px rgba(168, 101, 4, 0.32);
+  --shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 10px 26px -14px rgba(168, 101, 4, 0.32);
+  --shadow-md: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 24px 50px -18px rgba(168, 101, 4, 0.4);
+}
+
+/* ---------- Background: warm glows ---------- */
+html:not(.dark-theme) body {
+  background-color: #fbf1e2;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(232, 176, 74, 0.42), transparent 42%),
+    radial-gradient(circle at 88% 18%, rgba(244, 200, 150, 0.36), transparent 40%),
+    radial-gradient(circle at 92% 86%, rgba(204, 129, 10, 0.22), transparent 48%),
+    radial-gradient(circle at 8% 92%, rgba(232, 176, 74, 0.26), transparent 45%),
+    linear-gradient(180deg, #fdf6ea 0%, #f5e5cc 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--dark);
+}
+html:not(.dark-theme) ::selection {
+  background: rgba(204, 129, 10, 0.35);
+  color: #3a2410;
+}
+
+/* ---------- Navbar ---------- */
+html:not(.dark-theme) .nav {
+  background: rgba(255, 248, 236, 0.7);
+  -webkit-backdrop-filter: saturate(1.6) blur(16px);
+  backdrop-filter: saturate(1.6) blur(16px);
+}
+html:not(.dark-theme) .nav.scrolled {
+  border-bottom-color: rgba(204, 129, 10, 0.45);
+  box-shadow: 0 12px 30px -20px rgba(168, 101, 4, 0.5);
+}
+html:not(.dark-theme) .nav-link::after {
+  background: linear-gradient(90deg, #cc810a, #e8b04a);
+}
+html:not(.dark-theme) .nav-cta,
+html:not(.dark-theme) .primary-btn {
+  background: linear-gradient(135deg, #db8d12 0%, #cc810a 45%, #a86504 100%);
+  border: 1px solid rgba(255, 214, 140, 0.7);
+  color: #ffffff;
+  box-shadow:
+    0 12px 26px -12px rgba(168, 101, 4, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset;
+}
+html:not(.dark-theme) .nav-actions .icon-btn {
+  background: rgba(255, 251, 244, 0.85);
+  border-color: rgba(204, 129, 10, 0.4);
+}
+html:not(.dark-theme) .nav-drop {
+  background: rgba(255, 251, 244, 0.96);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-color: rgba(204, 129, 10, 0.4);
+}
+
+/* ---------- Headings ---------- */
+html:not(.dark-theme) .sec-title {
+  color: var(--dark);
+}
+html:not(.dark-theme) .page-title {
+  display: inline-block;
+  color: #a86504;
+}
+html:not(.dark-theme) .welcome-eyebrow {
+  color: #a86504;
+}
+
+/* ---------- Hero ---------- */
+html:not(.dark-theme) .hero-light {
+  background: radial-gradient(
+    560px circle at var(--mx, 72%) var(--my, 28%),
+    rgba(232, 176, 74, 0.45),
+    transparent 65%
+  );
+}
+html:not(.dark-theme) .seg {
+  background: rgba(255, 251, 244, 0.78);
+  border-color: rgba(204, 129, 10, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+html:not(.dark-theme) .seg .seg-pill {
+  background: linear-gradient(135deg, #db8d12, #a86504);
+}
+html:not(.dark-theme) .seg .seg-btn.on {
+  color: #ffffff;
+}
+
+/* ---------- Glass cards (every page) ---------- */
+html:not(.dark-theme) .spot,
+html:not(.dark-theme) .project-card,
+html:not(.dark-theme) .achievement-card,
+html:not(.dark-theme) .certificate-card,
+html:not(.dark-theme) .idea-card,
+html:not(.dark-theme) .contact-card,
+html:not(.dark-theme) .edu-card,
+html:not(.dark-theme) .page-content,
+html:not(.dark-theme) .welcome-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.84) 0%, rgba(255, 244, 224, 0.64) 100%);
+  border: 1px solid rgba(204, 129, 10, 0.38);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.8, 0.3, 1),
+    box-shadow 0.35s,
+    border-color 0.35s,
+    background 0.35s;
+}
+
+/* ---------- Projects toolbar ---------- */
+html:not(.dark-theme) .filter-pill {
+  background: rgba(255, 251, 244, 0.72);
+  border-color: rgba(204, 129, 10, 0.45);
+}
+html:not(.dark-theme) .filter-pill.active {
+  background: linear-gradient(135deg, #db8d12, #a86504);
+  border-color: #cc810a;
+  color: #ffffff;
+}
+html:not(.dark-theme) .search-box {
+  background: rgba(255, 251, 244, 0.88);
+  border-color: rgba(204, 129, 10, 0.5);
+}
+html:not(.dark-theme) .search-box:focus-within {
+  border-color: #cc810a;
+  box-shadow: 0 0 0 4px rgba(204, 129, 10, 0.2);
+}
+
+/* ---------- ID card stage ---------- */
+html:not(.dark-theme) .stage .id-card {
+  background: linear-gradient(160deg, #fffdf8, #fbebcf);
+  border: 1px solid rgba(204, 129, 10, 0.55);
+  box-shadow:
+    0 30px 60px -24px rgba(168, 101, 4, 0.5),
+    0 0 0 6px rgba(255, 255, 255, 0.35);
+}
+html:not(.dark-theme) .stage .strap {
+  background: linear-gradient(180deg, transparent 0%, #cc810a 16%, #cc810a 100%);
+}
+html:not(.dark-theme) .stage .clip {
+  background: radial-gradient(circle, #f6d79a, #cc810a);
+}
+html:not(.dark-theme) .stage .photo-section img {
+  border-color: #cc810a;
+}
+html:not(.dark-theme) .stage .id-tags span {
+  background: #f8e3bc;
+  color: #6b3f03;
+}
+html:not(.dark-theme) .stage .id-tags span:hover {
+  background: #cc810a;
+  color: #ffffff;
+}
+
+/* ---------- Welcome screen ---------- */
+html:not(.dark-theme) .welcome {
+  background:
+    radial-gradient(circle at 15% 12%, rgba(232, 176, 74, 0.45), transparent 45%),
+    radial-gradient(circle at 88% 85%, rgba(204, 129, 10, 0.26), transparent 48%),
+    radial-gradient(circle at 85% 12%, rgba(244, 200, 150, 0.34), transparent 40%),
+    linear-gradient(180deg, #fdf6ea, #f3e1c5);
+}
+html:not(.dark-theme) .welcome-card-icon {
+  background: linear-gradient(135deg, #f9e2af, #e8b04a);
+  color: #7a4703;
+}
+html:not(.dark-theme) .welcome-card:hover .welcome-card-icon {
+  background: linear-gradient(135deg, #db8d12, #a86504);
+  color: #ffffff;
+}
+
+/* ---------- Footer ---------- */
+html:not(.dark-theme) body footer.site-footer {
+  background: linear-gradient(180deg, #3a2410, #24150a);
+}

@@ -1,0 +1,124 @@
+/* ===== Mobile-friendly layout + navbar from the left ===== */
+html body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+html body img {
+  max-width: 100%;
+}
+
+/* ---------- NAVBAR: start from the left (all screen sizes) ---------- */
+html body .nav-inner {
+  max-width: none;
+  margin: 0;
+  justify-content: flex-start;
+}
+html body .nav-actions {
+  margin-left: auto;
+}
+@media (max-width: 960px) {
+  html body .nav-inner {
+    height: 60px;
+  }
+  html body .nav-actions .icon-btn {
+    min-width: 42px;
+    height: 42px;
+  }
+  html body .nav-cta {
+    align-self: flex-start;
+    margin-left: 0;
+    padding: 11px 26px;
+  }
+}
+
+/* ---------- TABLET / PHONE ---------- */
+@media (max-width: 768px) {
+  /* page wrappers */
+  html body .page {
+    padding: 92px 5% 48px;
+  }
+  html body .page-title {
+    font-size: clamp(30px, 9vw, 44px);
+  }
+  html body .page-content {
+    padding: 22px 18px;
+  }
+  /* grids that had fixed 240-320px minimums (overflow on small phones) */
+  html body .exp-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  }
+  html body .certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  }
+  html body .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  }
+  html body .ideas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  }
+  html body .designer-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  }
+  /* search boxes: full width instead of 240px minimum */
+  html body .search-box,
+  html body .exp-search {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+  /* contact */
+  html body .contact-card {
+    padding: 18px 16px;
+  }
+  html body .contact-value {
+    overflow-wrap: anywhere;
+  }
+  /* home hero */
+  html body .hero {
+    padding: 88px 16px 48px;
+  }
+  html body .hero-grid {
+    gap: 28px;
+  }
+  html body .explore {
+    margin-top: 48px;
+  }
+  html body .explore-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  html body .explore-card {
+    padding: 20px;
+  }
+  html body .explore-card strong {
+    font-size: 24px;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+  html body .page {
+    padding: 84px 16px 40px;
+  }
+  html body .explore-grid {
+    grid-template-columns: 1fr;
+  }
+  html body .seg .seg-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ---------- MOBILE NAVBAR: burger at the far left ---------- */
+@media (max-width: 960px) {
+  html body .nav-inner {
+    padding-left: 10px;
+    padding-right: 12px;
+  }
+  html body .nav-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+  html body .nav-burger {
+    order: -1;
+    margin-right: auto;
+  }
+}

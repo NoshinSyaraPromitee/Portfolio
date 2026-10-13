@@ -1,0 +1,200 @@
+/* ============================================
+RESET + ELEMENTS
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+html body {
+  color: var(--dark);
+  overflow-x: hidden;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(201, 168, 76, 0.22), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(232, 201, 122, 0.25), transparent 45%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+  display: block;
+}
+section {
+  padding: 100px 8%;
+}
+.container {
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* ============================================
+PAGE LAYOUT (shared by every inner page)
+============================================ */
+.page {
+  min-height: 100vh;
+  padding: 120px 8%;
+}
+.page-title {
+  font-size: 60px;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+.page-subtitle {
+  max-width: 700px;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.8;
+}
+.page-button {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.page-content {
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+.page-content h2 {
+  margin-bottom: 20px;
+}
+.page-content p {
+  line-height: 1.8;
+}
+
+/* ============================================
+SECTION TITLE + SEGMENTED CONTROL
+============================================ */
+.sec-title {
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+}
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.seg .seg-btn {
+  position: relative;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: 20px;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text);
+  transition: color 0.25s;
+}
+.seg .seg-btn:hover {
+  color: var(--dark);
+}
+.seg .seg-btn.on {
+  color: var(--on-primary);
+}
+.seg .seg-label {
+  position: relative;
+  z-index: 1;
+}
+.seg .seg-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: var(--primary);
+}
+
+/* ============================================
+DARK THEME
+============================================ */
+.dark-theme {
+  color-scheme: dark;
+}
+.dark-theme button {
+  color: inherit;
+}
+.dark-theme a {
+  color: inherit;
+}
+.dark-theme ::selection {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+.dark-theme .page-content,
+.dark-theme .project-card,
+.dark-theme .contact-card {
+  background: var(--surface) !important;
+  color: var(--dark);
+}
+.dark-theme .page-content p,
+.dark-theme .project-card p,
+.dark-theme .contact-card p {
+  color: var(--text);
+}
+.dark-theme .project-card h1,
+.dark-theme .project-card h2,
+.dark-theme .project-card h3,
+.dark-theme .contact-card h1,
+.dark-theme .contact-card h2,
+.dark-theme .contact-card h3 {
+  color: var(--dark);
+}
+
+/* pages that use their own gold/cream tokens */
+.dark-theme .projects-wrap,
+.dark-theme .education-timeline,
+.dark-theme .achievements-gallery {
+  --cream: #292118;
+  --brown-dark: #f7f1e7;
+  --brown-muted: #c8b9a6;
+}
+.dark-theme .id-card {
+  color: var(--dark);
+  background-color: var(--surface);
+}
+.dark-theme .achievement-card {
+  background: var(--surface-alt);
+}
+.dark-theme .achievement-image {
+  background: #201a14;
+}
+
+/* ".dark-theme a { color: inherit }" beats class colours, so filled buttons need it back */
+.dark-theme .nav-cta,
+.dark-theme .nav-cta:hover,
+.dark-theme .primary-btn,
+.dark-theme .primary-btn:hover,
+.dark-theme .exp-link,
+.dark-theme .exp-link:hover {
+  color: var(--on-primary, #2a1213);
+}
+
+/* smooth theme switch */
+body,
+.page-content,
+.project-card,
+.contact-card,
+.welcome-card,
+input,
+footer {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}

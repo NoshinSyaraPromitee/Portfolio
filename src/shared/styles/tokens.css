@@ -1,0 +1,40 @@
+/* ============================================
+DESIGN TOKENS
+Light theme values are overridden in light-theme.css
+============================================ */
+:root {
+  --site-font: "Times New Roman", Times, serif;
+  --background: #eeeeee;
+  --background2: #d7cfc9;
+  --primary: #76323f;
+  --primaryLight: #c09f80;
+  --dark: #502224;
+  --text: #6b4a4b;
+  --white: #ffffff;
+  --surface: #faf8f6;
+  --surface-alt: #e9e3de;
+  --border: rgba(80, 34, 36, 0.14);
+  --on-primary: #ffffff;
+  --shadow: 0 10px 30px rgba(80, 34, 36, 0.1);
+  --shadow-sm: 0 1px 2px rgba(80, 34, 36, 0.06), 0 8px 24px -12px rgba(80, 34, 36, 0.18);
+  --shadow-md: 0 2px 4px rgba(80, 34, 36, 0.06), 0 18px 40px -16px rgba(80, 34, 36, 0.28);
+  --ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+  --transition: 0.35s;
+  --radius: 14px;
+}
+.dark-theme {
+  --background: #1e0f10;
+  --background2: #2a1415;
+  --primary: #c09f80;
+  --primaryLight: #d7cfc9;
+  --dark: #eeeeee;
+  --text: #cfc4bd;
+  --white: #2a1415;
+  --surface: #2a1415;
+  --surface-alt: #351b1c;
+  --border: rgba(192, 159, 128, 0.22);
+  --on-primary: #2a1213;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.3), 0 18px 40px -16px rgba(0, 0, 0, 0.6);
+}

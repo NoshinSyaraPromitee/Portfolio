@@ -1,0 +1,125 @@
+/* =====================================================
+OVERRIDES (loaded after every other global sheet)
+===================================================== */
+
+/* ---- One font + normal weight everywhere. Change --site-font in tokens.css ---- */
+html body,
+html body *,
+html body *::before,
+html body *::after {
+  font-family: var(--site-font) !important;
+  font-weight: 400 !important;
+}
+
+/* =====================================================
+HOVER = fast colour change only
+(no lift, scale, rotate, glow or cursor spotlight)
+===================================================== */
+.spot,
+.achievement-card,
+.certificate-card,
+.idea-card,
+.contact-card,
+.edu-card,
+.welcome-card,
+.detail-card,
+.skill-card,
+.nav-cta,
+.primary-btn,
+.cv-dropdown-toggle,
+.nav-actions .icon-btn,
+.social-links a,
+.filter-pill,
+.project-github,
+.no-results button,
+.detail-cta,
+.nav-drop-link {
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease,
+    filter 0.12s ease !important;
+}
+
+/* no movement on hover */
+.spot:hover,
+.achievement-card:hover,
+.certificate-card:hover,
+.idea-card:hover,
+.contact-card:hover,
+.edu-card:hover,
+.welcome-card:hover,
+.welcome-card:focus-visible,
+.detail-card:hover,
+.skill-card:hover,
+.nav-cta:hover,
+.primary-btn:hover,
+.cv-dropdown-toggle:hover,
+.hero .cv-dropdown-toggle:hover,
+.nav-actions .icon-btn:hover,
+.social-links a:hover,
+.filter-pill:hover,
+.project-github:hover,
+.no-results button:hover,
+.detail-card.clickable:hover .detail-cta,
+.achievement-card:hover .achievement-image img {
+  transform: none !important;
+}
+.achievement-image img {
+  transition: none !important;
+}
+
+/* no cursor spotlight */
+.spot::before,
+.spot:hover::before {
+  display: none !important;
+}
+
+/* the hover effect is a colour change */
+.spot:hover,
+.achievement-card:hover,
+.certificate-card:hover,
+.idea-card:hover,
+.contact-card:hover,
+.edu-card:hover,
+.welcome-card:hover,
+.welcome-card:focus-visible,
+.detail-card:hover {
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface)) !important;
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* filled buttons get darker */
+.nav-cta:hover,
+.primary-btn:hover {
+  filter: brightness(0.85);
+  box-shadow: none !important;
+}
+
+/* pills get a tint (the selected one keeps its own colour) */
+.filter-pill:not(.active):hover {
+  background: color-mix(in srgb, var(--primary) 18%, transparent) !important;
+  border-color: var(--primary) !important;
+}
+
+/* project cards: lift like Experience cards */
+html body .project-card {
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s,
+    border-color 0.35s;
+}
+html body .project-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+html:not(.dark-theme) body .project-card:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.84) 0%,
+    rgba(255, 244, 224, 0.64) 100%
+  ) !important;
+}

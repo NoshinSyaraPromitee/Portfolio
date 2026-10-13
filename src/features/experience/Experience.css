@@ -1,0 +1,470 @@
+/* ===========================================
+PHOTO POPUP (base)
+=========================================== */
+.exp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(40, 28, 12, 0.55);
+}
+.exp-modal {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 2px solid var(--cat, #cc810a);
+  border-radius: 20px;
+}
+.exp-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--cat, #cc810a);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--dark);
+  cursor: pointer;
+}
+.exp-modal-close:hover {
+  background: var(--cat, #cc810a);
+  color: #fff;
+}
+.exp-modal-close svg {
+  width: 16px;
+  height: 16px;
+}
+.exp-modal-body {
+  padding: 24px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.exp-modal-body h3 {
+  margin: 0;
+  font-size: 26px;
+  color: var(--dark);
+}
+.exp-modal-company {
+  margin: 0;
+  color: var(--cat, #cc810a);
+  font-size: 16px;
+}
+.exp-modal-timeline {
+  color: var(--text);
+  font-size: 14px;
+}
+.exp-modal-desc {
+  margin: 6px 0 0;
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+.exp-modal-link {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: var(--cat, #cc810a);
+  color: #fff;
+  text-decoration: none;
+}
+.exp-modal-link:hover {
+  filter: brightness(0.85);
+}
+
+/* ===========================================
+EXPERIENCE - CARD GRID LAYOUT
+(all classes prefixed exp- so nothing leaks
+into other pages; colours come from the theme
+variables so light and dark mode both work)
+=========================================== */
+.exp-wrap {
+  margin-top: 36px;
+  --exp-border: color-mix(in srgb, var(--primary) 45%, transparent);
+  --exp-border-hover: var(--primary);
+}
+
+/* ---------- Toolbar ---------- */
+.exp-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 20px;
+  padding-bottom: 24px;
+}
+.exp-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.exp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font:
+    600 13.5px "Jost",
+    sans-serif;
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s,
+    transform 0.25s var(--ease);
+}
+.exp-pill:hover {
+  border-color: var(--primaryLight);
+  color: var(--dark);
+  transform: translateY(-1px);
+}
+.exp-pill.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
+}
+.exp-pill-count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 20px;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.exp-pill.active .exp-pill-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--on-primary);
+}
+.exp-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  min-width: 240px;
+  flex: 0 1 300px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.25s;
+}
+.exp-search:focus-within {
+  border-color: var(--primaryLight);
+}
+.exp-search > svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--text);
+}
+.exp-search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font:
+    500 13.5px "Jost",
+    sans-serif;
+  color: var(--dark);
+}
+.exp-search input::placeholder {
+  color: var(--text);
+  opacity: 0.7;
+}
+.exp-search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  color: var(--text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.exp-search-clear svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* ---------- Grid ---------- */
+.exp-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+/* ---------- Card ---------- */
+.exp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1.5px solid var(--exp-border);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  animation: exp-rise 0.6s var(--ease) forwards;
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s,
+    border-color 0.35s;
+}
+.exp-card::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 0;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: var(--primaryLight);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
+}
+.exp-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--exp-border-hover);
+  box-shadow: var(--shadow-md);
+}
+.exp-card:hover::before {
+  transform: scaleX(1);
+}
+.exp-avatar {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--surface-alt);
+}
+.exp-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Text ---------- */
+.exp-title {
+  font:
+    600 24px/1.2 "Cormorant Garamond",
+    serif;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.exp-company {
+  font:
+    600 14.5px "Jost",
+    sans-serif;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.exp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.exp-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font:
+    500 13px "Jost",
+    sans-serif;
+  color: var(--text);
+}
+.exp-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font:
+    700 11px "Jost",
+    sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, #2e9e5b 16%, transparent);
+  color: color-mix(in srgb, #2e9e5b 70%, var(--dark));
+}
+.exp-desc {
+  flex: 1;
+  font:
+    400 14.5px/1.7 "Jost",
+    sans-serif;
+  color: var(--text);
+}
+.exp-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font:
+    600 13px "Jost",
+    sans-serif;
+  text-decoration: none;
+  background: var(--primary);
+  color: var(--on-primary);
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s;
+}
+.exp-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Empty state ---------- */
+.exp-empty {
+  margin-top: 60px;
+  text-align: center;
+  color: var(--text);
+  font-size: 15px;
+}
+.exp-empty button {
+  margin-top: 14px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--dark);
+  font:
+    600 13px "Jost",
+    sans-serif;
+  cursor: pointer;
+}
+.exp-empty button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
+}
+@keyframes exp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-card {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .exp-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .exp-search {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Category tones + clickable cards ---------- */
+/* category border colours */
+.exp-tone-blue {
+  --tone: #2563c9;
+}
+.exp-tone-red {
+  --tone: #c62828;
+}
+.exp-tone-green {
+  --tone: #2e7d32;
+}
+.dark-theme .exp-tone-blue {
+  --tone: #4c8df6;
+}
+.dark-theme .exp-tone-red {
+  --tone: #f0616d;
+}
+.dark-theme .exp-tone-green {
+  --tone: #3dbe74;
+}
+.exp-card.has-tone {
+  --exp-border: var(--tone);
+  --exp-border-hover: var(--tone);
+  border-width: 2px;
+}
+.exp-card.has-tone::before {
+  background: var(--tone);
+}
+.exp-card.has-tone:hover {
+  box-shadow: 0 18px 40px -16px color-mix(in srgb, var(--tone) 55%, transparent);
+}
+
+/* clickable cards (the ones with photos) */
+.exp-card.clickable {
+  cursor: pointer;
+}
+.exp-card.clickable:focus-visible {
+  outline: 2px solid var(--tone, var(--primary));
+  outline-offset: 3px;
+}
+.exp-photos-hint {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font:
+    600 12.5px "Jost",
+    sans-serif;
+  letter-spacing: 0.04em;
+  color: var(--tone, var(--primary));
+}
+.exp-photos-hint::after {
+  content: "\2192";
+}
+.exp-card.clickable:hover .exp-photos-hint {
+  text-decoration: underline;
+}
+
+/* photo popup: category colour */
+.exp-modal.has-tone {
+  --cat: var(--tone);
+}
+.exp-modal-media {
+  padding: 60px 24px 0;
+}

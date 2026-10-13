@@ -1,0 +1,70 @@
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  margin-top: 50px;
+}
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 26px 28px;
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--dark);
+  transition: var(--transition);
+}
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+}
+.contact-card-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  background: var(--background2);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-label {
+  font-family: "Jost", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.contact-value {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  color: var(--dark);
+}
+.contact-action {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  transition: var(--transition);
+}
+.contact-action.copied {
+  color: var(--primary);
+}
+.contact-action-icon {
+  color: var(--text);
+}

@@ -1,0 +1,432 @@
+/* ===========================================
+   ID CARD WRAPPER
+=========================================== */
+
+.idcard-wrapper {
+  position: relative;
+  width: 360px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1200px;
+  transform-origin: top center;
+}
+
+.idcard-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(rgba(201, 168, 76, 0.25), transparent 70%);
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(50px);
+  z-index: -1;
+}
+
+.idcard-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  background-image:
+    radial-gradient(#f5d97a 1.5px, transparent 1.5px), radial-gradient(#fff6d6 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    120px 120px;
+  background-position:
+    0 0,
+    40px 40px;
+  opacity: 0.45;
+  animation: sparkleMove 12s linear infinite;
+}
+
+@keyframes sparkleMove {
+  0% {
+    background-position:
+      0 0,
+      40px 40px;
+  }
+  100% {
+    background-position:
+      80px 80px,
+      160px 160px;
+  }
+}
+
+/* ===========================================
+   LANYARD (two ribbon straps converging on the clip)
+=========================================== */
+
+.lanyard {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  z-index: 5;
+}
+
+.strap {
+  position: absolute;
+  bottom: 0;
+  width: 18px;
+  height: 150px;
+  transform-origin: bottom center;
+  background: linear-gradient(
+    180deg,
+    rgba(201, 168, 76, 0) 0%,
+    #c9a84c 16%,
+    #d9b96b 55%,
+    #c9a84c 100%
+  );
+  border-radius: 3px;
+  box-shadow:
+    inset -3px 0 5px rgba(0, 0, 0, 0.12),
+    inset 3px 0 5px rgba(255, 255, 255, 0.35);
+}
+
+/* stitch line */
+.strap::before {
+  content: "";
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  width: 1px;
+  height: 84%;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0px,
+    rgba(255, 255, 255, 0.55) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* woven fabric texture */
+.strap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 2px,
+    transparent 2px,
+    transparent 9px
+  );
+  border-radius: 3px;
+}
+
+.strap-left {
+  left: calc(50% - 32px);
+  transform: rotate(-15deg);
+}
+
+.strap-right {
+  right: calc(50% - 32px);
+  transform: rotate(15deg);
+}
+
+/* ===========================================
+   CLIP
+=========================================== */
+
+.clip {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  margin-top: -15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f5e6a3, #b68b3a);
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.8),
+    0 5px 12px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.clip::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ===========================================
+   CARD
+=========================================== */
+
+.id-card {
+  position: relative;
+  width: 330px;
+  min-height: 0;
+  background: #f9f5ec;
+  border: 3px solid #c9a84c;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-top: -4px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.35s;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.id-card:hover {
+  box-shadow: 0 40px 85px rgba(0, 0, 0, 0.28);
+}
+
+/* metallic border sheen on hover */
+.id-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.id-card:hover::before {
+  opacity: 1;
+}
+
+/* floating shadow beneath card */
+.id-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -32px;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+/* ===========================================
+   PHOTO
+=========================================== */
+
+.photo-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.photo-section img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #c9a84c;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+  transition: transform 0.4s;
+}
+
+.id-card:hover .photo-section img {
+  transform: scale(1.06) rotate(2deg);
+}
+
+/* ===========================================
+   CONTENT
+=========================================== */
+
+.card-content {
+  padding: 22px 24px 28px;
+  text-align: center;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 12.5px;
+  color: #7b6a55;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  background: #39d353;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(57, 211, 83, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(57, 211, 83, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(57, 211, 83, 0);
+  }
+}
+
+.card-content h2 {
+  font-size: 28px;
+  color: #3a2e1e;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.card-content h4 {
+  color: #7b6a55;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.divider {
+  width: 64px;
+  height: 2px;
+  margin: 18px auto;
+  border-radius: 2px;
+  background: #c9a84c;
+}
+
+.id-card .id-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.id-card .id-tags span {
+  padding: 7px 14px;
+  background: #efe3bf;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #705820;
+  transition:
+    background 0.35s,
+    color 0.35s,
+    transform 0.35s;
+}
+
+.id-card .id-tags span:hover {
+  background: #c9a84c;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width: 768px) {
+  .idcard-wrapper {
+    width: 260px;
+  }
+  .id-card {
+    width: 250px;
+  }
+  .photo-section img {
+    width: 120px;
+    height: 120px;
+  }
+  .card-content h2 {
+    font-size: 24px;
+  }
+  .lanyard {
+    height: 110px;
+  }
+  .strap {
+    width: 15px;
+    height: 130px;
+  }
+  .strap-left {
+    left: calc(50% - 26px);
+  }
+  .strap-right {
+    right: calc(50% - 26px);
+  }
+}
+
+/* rotates with the drag; .lanyard inside it stretches */
+.lanyard-pivot {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  z-index: 5;
+}
+
+/* ---- stage (was CardStage) ---- */
+.stage {
+  position: relative;
+  width: min(460px, 100%);
+  padding: 60px 12px 64px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.stage-body {
+  display: flex;
+  justify-content: center;
+}
+
+/* ---- Recolour the ID card and remove its glow / sparkle / blur blobs ---- */
+.stage .idcard-wrapper::before,
+.stage .idcard-wrapper::after,
+.stage .id-card::before,
+.stage .id-card::after {
+  display: none;
+}
+.stage .strap {
+  background: linear-gradient(180deg, transparent 0%, var(--primary) 16%, var(--primary) 100%);
+}
+.stage .clip {
+  background: radial-gradient(circle, var(--primaryLight), var(--primary));
+}
+.stage .id-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+.stage .id-card:hover {
+  box-shadow: 0 24px 48px -18px rgba(80, 34, 36, 0.4);
+}
+.stage .photo-section img {
+  border-color: var(--primaryLight);
+}
+.stage .status,
+.stage .card-content h4 {
+  color: var(--text);
+}
+.stage .card-content h2 {
+  color: var(--dark);
+}
+.stage .divider {
+  width: 64px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+  background: var(--primaryLight);
+}
+.stage .id-tags span {
+  background: var(--surface-alt);
+  color: var(--dark);
+}
+.stage .id-tags span:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+}
