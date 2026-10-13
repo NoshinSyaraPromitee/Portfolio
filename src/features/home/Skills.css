@@ -83,9 +83,9 @@
 /* Keep dark icons (Java, MySQL, LaTeX, Go) visible on dark cards */
 .dark-theme .skill-icon {
   box-sizing: border-box;
-  width: 52px;
-  height: 52px;
-  padding: 8px;
+  width: 44px;
+  height: 44px;
+  padding: 6px;
   background: #f7f1e8;
   border-radius: 12px;
 }

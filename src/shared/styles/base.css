@@ -131,6 +131,19 @@ DARK THEME
 .dark-theme a {
   color: inherit;
 }
+/* same border width as the light-theme glass cards, so nothing shifts when switching */
+.dark-theme .spot,
+.dark-theme .project-card,
+.dark-theme .achievement-card,
+.dark-theme .certificate-card,
+.dark-theme .idea-card,
+.dark-theme .contact-card,
+.dark-theme .edu-card,
+.dark-theme .page-content,
+.dark-theme .welcome-card {
+  border: 1px solid var(--border);
+}
+
 .dark-theme ::selection {
   background: var(--primary);
   color: var(--on-primary);

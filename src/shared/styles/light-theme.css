@@ -76,7 +76,6 @@ html:not(.dark-theme) .sec-title {
   color: var(--dark);
 }
 html:not(.dark-theme) .page-title {
-  display: inline-block;
   color: #a86504;
 }
 html:not(.dark-theme) .welcome-eyebrow {

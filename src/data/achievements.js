@@ -101,7 +101,7 @@ const achievements = [
     type: "text",
     category: "Quiz",
     badge: "8th - National Round",
-    year: null,
+    year: 2022,
     title: "Cyber-Hero",
     caption:
       "Cyber Security Quiz Competition organized by Cyber71. Placed 8th in the national round.",
@@ -113,7 +113,7 @@ const achievements = [
     type: "text",
     category: "Quiz",
     badge: "4th - Divisional Round",
-    year: null,
+    year: 2019,
     title: "Biggan-Uthsab",
     caption: "Placed 4th in the divisional round of Biggan-Uthsab by Bigganchinta.",
     link: null

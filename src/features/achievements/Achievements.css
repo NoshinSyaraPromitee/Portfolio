@@ -155,3 +155,126 @@ RESPONSIVE
     color: var(--gold-dark);
   }
 }
+
+/* ===========================================
+TEXT CARDS (achievements without a photo)
+=========================================== */
+.atc-group {
+  margin-top: 56px;
+}
+.atc-group-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: clamp(24px, 2.6vw, 30px);
+  color: var(--dark);
+}
+.atc-group-count {
+  display: grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.achievements-text-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+
+/* medal colours, picked from the badge text */
+.achievement-text-card {
+  --tier: var(--primary);
+}
+.achievement-text-card.tier-gold {
+  --tier: #d4a33b;
+}
+.achievement-text-card.tier-silver {
+  --tier: #8c99a6;
+}
+.achievement-text-card.tier-bronze {
+  --tier: #b8733a;
+}
+
+.achievement-text-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 24px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(
+      220px circle at 100% 0%,
+      color-mix(in srgb, var(--tier) 16%, transparent),
+      transparent 70%
+    ),
+    var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--dark);
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+/* medal-coloured strip along the top */
+.achievement-text-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tier), color-mix(in srgb, var(--tier) 30%, transparent));
+}
+a.achievement-text-card:hover {
+  border-color: var(--tier);
+  box-shadow: var(--shadow-md);
+}
+
+/* year in the top-right corner */
+.atc-year {
+  position: absolute;
+  top: 23px;
+  right: 22px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.atc-badge {
+  padding-right: 48px;
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tier);
+}
+
+.achievement-text-card h3 {
+  font-size: 23px;
+  line-height: 1.25;
+  color: var(--dark);
+}
+.achievement-text-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.atc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tier);
+}
