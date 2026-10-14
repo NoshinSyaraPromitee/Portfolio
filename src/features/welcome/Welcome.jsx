@@ -173,7 +173,7 @@ function Welcome({ onSelect }) {
 
       <div className="pc-foot">
         <p className="pc-caption" aria-live="polite">
-          {caption ? <>Opens &rarr; {caption.opens}</> : null}
+        
         </p>
         <button
           type="button"

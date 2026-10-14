@@ -47,7 +47,12 @@ function Skills() {
                 transition={{ duration: 0.3, ease: [0.22, 0.8, 0.3, 1] }}
               >
                 <SpotCard className="skill-card">
-                  <img src={s.icon} alt="" className="skill-icon" loading="lazy" />
+                  <img
+                    src={s.icon}
+                    alt=""
+                    className={s.mono ? "skill-icon mono" : "skill-icon"}
+                    loading="lazy"
+                  />
                   <span className="skill-name">{s.name}</span>
                   <small>{s.cat}</small>
                 </SpotCard>

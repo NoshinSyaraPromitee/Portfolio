@@ -41,6 +41,10 @@
   height: 44px;
   object-fit: contain;
 }
+/* black logos (Unity, Unreal) turn light in dark theme */
+.dark-theme .skill-icon.mono {
+  filter: invert(1);
+}
 .skill-name {
   align-self: end;
   font-size: 24px;
