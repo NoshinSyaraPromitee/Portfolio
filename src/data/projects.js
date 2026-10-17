@@ -71,7 +71,7 @@ const projects = [
     title: "StackShare",
     timeline: "Academic Project",
     description:
-      "a web application that makes borrowing and lending devices super easyâ€”perfect for students, clubs, and small communities!",
+      "A web application that makes borrowing and lending devices super easy - perfect for students, clubs, and small communities!",
     techStack: ["MySql", "React", "Node.js", "Express.js"],
     category: "mern",
     github: "https://github.com/tasniamaha/StackShare_rdbms.git",
@@ -100,11 +100,11 @@ const projects = [
 
   {
     id: 7,
-    title: "OOP gaming simulator",
+    title: "OOP Gaming Simulator",
     video: "6ONNH4Q2cvw",
     timeline: "Academic Project",
     description:
-      "This slot is ready for your Unreal Engine / C++ game project - swap in the title, description, and tech stack when it's ready.",
+      "An academic game project built in Unreal Engine with C++, applying object-oriented programming principles such as classes, inheritance and polymorphism to structure the game's characters, objects and gameplay logic.",
     techStack: ["Unreal Engine", "C++"],
     category: "games",
     github: null,
@@ -116,8 +116,8 @@ const projects = [
     title: "PlantPal",
     timeline: "Industrial Training Project",
     description:
-      "A multi-user chat application built with Python socket programming on a client-server model, supporting real-time messaging for multiple users.",
-    techStack: ["Flutter", "GoLang", "MongoDB"],
+      "MyPlantPal is a Flutter mobile application that helps users identify plants, learn about plant care, and manage their gardening journey through an easy-to-use interface. It turns gardening tasks into a game, and includes a plant shop and fertilizer recipes. The backend is written in Go and deployed with Docker and Cloudflare.",
+    techStack: ["Flutter", "Go", "MongoDB", "Docker", "Cloudflare"],
     category: "mobile",
     github: "https://github.com/NSP2023",
     images: [
