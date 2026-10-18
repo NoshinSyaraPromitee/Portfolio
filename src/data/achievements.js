@@ -11,7 +11,7 @@ const achievements = [
   {
     id: 2,
     title: "Featured in Kryzotech",
-    caption: "Recognized for academic performance in the Computer Science program.",
+    caption: "Got featured by Kryzotech for being their internee and winner of I3C and IWC - 2026",
     image: ["https://res.cloudinary.com/dkpfwi4hn/image/upload/v1783893344/She_Stem_2_myhcvg.jpg"],
     link: null,
     size: "square"
