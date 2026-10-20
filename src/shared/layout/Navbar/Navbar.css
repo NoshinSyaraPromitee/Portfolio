@@ -283,3 +283,24 @@
     right: 9px;
   }
 }
+/* Hide "More" (Ideas, Blog, Designer, Shop) on desktop; phones still show it in the menu */
+@media (min-width: 961px) {
+  .nav-more {
+    display: none;
+  }
+}
+
+/* Fit all links in one row on laptop-width screens */
+@media (max-width: 1400px) and (min-width: 961px) {
+  .nav .nav-link {
+    padding: 8px 7px;
+    font-size: 14px;
+  }
+  .nav .nav-link::after {
+    left: 7px;
+    right: 7px;
+  }
+  .nav .nav-cta {
+    padding: 9px 18px;
+  }
+}

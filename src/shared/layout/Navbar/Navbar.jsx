@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { cvFiles } from "../../../data/cv";
@@ -10,7 +10,11 @@ const main = [
   { to: "/education", label: "Education" },
   { to: "/research", label: "Research" },
   { to: "/achievements", label: "Achievements" },
-  { to: "/certificates", label: "Certificates" }
+  { to: "/certificates", label: "Certificates" },
+  { to: "/ideas", label: "Ideas" },
+  { to: "/blog", label: "Blog" },
+  { to: "/designer", label: "Designer" },
+  { to: "/shop", label: "Shop" }
 ];
 
 // always visible in the phone navbar; everything else lives in the hamburger menu
@@ -21,37 +25,18 @@ const quick = [
 ];
 const isQuick = (to) => quick.some((q) => q.to === to);
 
-const more = [
-  { to: "/ideas", label: "Ideas" },
-  { to: "/blog", label: "Blog" },
-  { to: "/designer", label: "Designer" },
-  { to: "/shop", label: "Entrepreneur / Shop" }
-];
-
 function Navbar({ darkMode, onToggleTheme }) {
   const [menu, setMenu] = useState(false);
-  const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const moreRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
-    const close = (e) => {
-      if (moreRef.current && !moreRef.current.contains(e.target)) setMoreOpen(false);
-    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    document.addEventListener("mousedown", close);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      document.removeEventListener("mousedown", close);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const shut = () => {
-    setMenu(false);
-    setMoreOpen(false);
-  };
+  const shut = () => setMenu(false);
 
   return (
     <header className={scrolled ? "nav scrolled" : "nav"}>
@@ -82,24 +67,6 @@ function Navbar({ darkMode, onToggleTheme }) {
               {l.label}
             </NavLink>
           ))}
-
-          <div className="nav-more" ref={moreRef}>
-            <button
-              type="button"
-              className="nav-link nav-morebtn"
-              aria-expanded={moreOpen}
-              onClick={() => setMoreOpen((v) => !v)}
-            >
-              More <span className={moreOpen ? "nav-caret up" : "nav-caret"}>&#9662;</span>
-            </button>
-            <div className={moreOpen ? "nav-drop show" : "nav-drop"}>
-              {more.map((l) => (
-                <NavLink key={l.to} to={l.to} className="nav-drop-link" onClick={shut}>
-                  {l.label}
-                </NavLink>
-              ))}
-            </div>
-          </div>
 
           <NavLink to="/contact" className="nav-cta in-quick" onClick={shut}>
             Contact

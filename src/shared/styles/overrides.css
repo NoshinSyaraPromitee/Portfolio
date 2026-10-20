@@ -123,3 +123,334 @@ html:not(.dark-theme) body .project-card:hover {
     rgba(255, 244, 224, 0.64) 100%
   ) !important;
 }
+
+/* =====================================================
+STRONGER, MORE VISIBLE HOVER (all cards)
+===================================================== */
+html body .spot,
+html body .achievement-card,
+html body .achievement-text-card,
+html body .certificate-card,
+html body .idea-card,
+html body .contact-card,
+html body .edu-card,
+html body .welcome-card,
+html body .detail-card,
+html body .skill-card {
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease !important;
+}
+
+html body .spot:hover,
+html body .achievement-card:hover,
+html body .achievement-text-card:hover,
+html body .certificate-card:hover,
+html body .idea-card:hover,
+html body .contact-card:hover,
+html body .edu-card:hover,
+html body .welcome-card:hover,
+html body .welcome-card:focus-visible,
+html body .detail-card:hover,
+html body .skill-card:hover {
+  background: color-mix(in srgb, var(--primary) 30%, var(--surface)) !important;
+  border-color: var(--primary) !important;
+  box-shadow:
+    0 0 0 2px var(--primary),
+    0 14px 36px -10px color-mix(in srgb, var(--primary) 60%, transparent) !important;
+}
+
+/* medal-coloured outline for achievement text cards */
+html body .achievement-text-card:hover {
+  background: color-mix(in srgb, var(--tier) 26%, var(--surface)) !important;
+  border-color: var(--tier) !important;
+  box-shadow:
+    0 0 0 2px var(--tier),
+    0 14px 36px -10px color-mix(in srgb, var(--tier) 60%, transparent) !important;
+}
+
+/* titles light up too */
+html body .contact-card:hover .contact-value,
+html body .skill-card:hover .skill-name,
+html body .achievement-text-card:hover h3,
+html body .certificate-card:hover h3,
+html body .idea-card:hover h3,
+html body .edu-card:hover h3 {
+  color: var(--primary) !important;
+}
+html body .achievement-text-card:hover h3 {
+  color: var(--tier) !important;
+}
+
+/* =====================================================
+SOLID HOVER (fills the card, flips text colour)
+===================================================== */
+html body .spot:hover,
+html body .achievement-text-card:hover,
+html body .certificate-card:hover,
+html body .idea-card:hover,
+html body .contact-card:hover,
+html body .edu-card:hover,
+html body .welcome-card:hover,
+html body .welcome-card:focus-visible,
+html body .detail-card:hover,
+html body .skill-card:hover {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 16px 38px -12px color-mix(in srgb, var(--primary) 70%, transparent) !important;
+}
+
+/* every bit of text and every icon inside switches to the contrast colour */
+html body .spot:hover *,
+html body .achievement-text-card:hover *,
+html body .certificate-card:hover *,
+html body .idea-card:hover *,
+html body .contact-card:hover *,
+html body .edu-card:hover *,
+html body .welcome-card:hover *,
+html body .detail-card:hover *,
+html body .skill-card:hover * {
+  color: var(--on-primary) !important;
+  border-color: color-mix(in srgb, var(--on-primary) 35%, transparent) !important;
+}
+
+/* icon circles / badges become a darker inset on the solid card */
+html body .contact-card:hover .contact-icon,
+html body .achievement-text-card:hover .atc-badge {
+  background: color-mix(in srgb, var(--on-primary) 16%, transparent) !important;
+}
+
+/* achievement text cards use their medal colour as the solid fill */
+html body .achievement-text-card.tier-gold:hover,
+html body .achievement-text-card.tier-silver:hover,
+html body .achievement-text-card.tier-bronze:hover {
+  background: var(--tier) !important;
+  border-color: var(--tier) !important;
+  box-shadow: 0 16px 38px -12px color-mix(in srgb, var(--tier) 70%, transparent) !important;
+}
+html body .achievement-text-card.tier-gold:hover *,
+html body .achievement-text-card.tier-silver:hover *,
+html body .achievement-text-card.tier-bronze:hover * {
+  color: #1e0f10 !important;
+}
+
+/* dark mode: solid tan fill, deep maroon text */
+html body.dark-theme .spot:hover,
+html body.dark-theme .certificate-card:hover,
+html body.dark-theme .idea-card:hover,
+html body.dark-theme .contact-card:hover,
+html body.dark-theme .edu-card:hover,
+html body.dark-theme .welcome-card:hover,
+html body.dark-theme .detail-card:hover,
+html body.dark-theme .skill-card:hover,
+html.dark-theme body .spot:hover,
+html.dark-theme body .certificate-card:hover,
+html.dark-theme body .idea-card:hover,
+html.dark-theme body .contact-card:hover,
+html.dark-theme body .edu-card:hover,
+html.dark-theme body .welcome-card:hover,
+html.dark-theme body .detail-card:hover,
+html.dark-theme body .skill-card:hover {
+  background: #c09f80 !important;
+  border-color: #d7b897 !important;
+}
+
+/* =====================================================
+FIX: titles stay readable on the solid hover
+===================================================== */
+html body .contact-card:hover .contact-value,
+html body .contact-card:hover .contact-label,
+html body .skill-card:hover .skill-name,
+html body .certificate-card:hover h3,
+html body .certificate-card:hover .certificate-issuer,
+html body .certificate-card:hover .certificate-date,
+html body .idea-card:hover h3,
+html body .edu-card:hover h3,
+html body .detail-card:hover h3,
+html body .welcome-card:hover h3,
+html body .spot:hover h3 {
+  color: var(--on-primary) !important;
+  -webkit-text-fill-color: var(--on-primary) !important;
+}
+
+html body .achievement-text-card:hover h3,
+html body .achievement-text-card:hover p,
+html body .achievement-text-card:hover span {
+  color: var(--on-primary) !important;
+  -webkit-text-fill-color: var(--on-primary) !important;
+}
+html body .achievement-text-card.tier-gold:hover h3,
+html body .achievement-text-card.tier-silver:hover h3,
+html body .achievement-text-card.tier-bronze:hover h3,
+html body .achievement-text-card.tier-gold:hover p,
+html body .achievement-text-card.tier-silver:hover p,
+html body .achievement-text-card.tier-bronze:hover p,
+html body .achievement-text-card.tier-gold:hover span,
+html body .achievement-text-card.tier-silver:hover span,
+html body .achievement-text-card.tier-bronze:hover span {
+  color: #1e0f10 !important;
+  -webkit-text-fill-color: #1e0f10 !important;
+}
+
+/* =====================================================
+EXPERIENCE: solid hover (same as other cards)
+===================================================== */
+html body .exp-card {
+  transition:
+    transform 0.3s var(--ease),
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+html body .exp-card:hover {
+  transform: translateY(-5px) !important;
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 16px 38px -12px color-mix(in srgb, var(--primary) 70%, transparent) !important;
+}
+html.dark-theme body .exp-card:hover {
+  background: #c09f80 !important;
+  border-color: #d7b897 !important;
+}
+
+/* all text + icons flip to the contrast colour */
+html body .exp-card:hover,
+html body .exp-card:hover .exp-title,
+html body .exp-card:hover .exp-company,
+html body .exp-card:hover .exp-date,
+html body .exp-card:hover .exp-desc,
+html body .exp-card:hover .exp-photos-hint,
+html body .exp-card:hover .exp-meta,
+html body .exp-card:hover svg {
+  color: var(--on-primary) !important;
+  -webkit-text-fill-color: var(--on-primary) !important;
+}
+
+/* top accent bar */
+html body .exp-card:hover::before {
+  background: var(--on-primary) !important;
+}
+
+/* "Current" tag and the link button invert on the solid card */
+html body .exp-card:hover .exp-current,
+html body .exp-card:hover .exp-link {
+  background: var(--on-primary) !important;
+  border-color: var(--on-primary) !important;
+  color: var(--primary) !important;
+  -webkit-text-fill-color: var(--primary) !important;
+}
+html.dark-theme body .exp-card:hover .exp-current,
+html.dark-theme body .exp-card:hover .exp-link {
+  color: #c09f80 !important;
+  -webkit-text-fill-color: #c09f80 !important;
+}
+html body .exp-card:hover .exp-link svg {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* =====================================================
+PROJECT DETAIL: badges + tech stack readable on solid hover
+===================================================== */
+html body .detail-card:hover .detail-badge,
+html body .detail-card:hover .detail-timeline {
+  background: var(--on-primary) !important;
+  border-color: var(--on-primary) !important;
+  color: var(--primary) !important;
+  -webkit-text-fill-color: var(--primary) !important;
+}
+html.dark-theme body .detail-card:hover .detail-badge,
+html.dark-theme body .detail-card:hover .detail-timeline {
+  color: #c09f80 !important;
+  -webkit-text-fill-color: #c09f80 !important;
+}
+
+html body .detail-card:hover .detail-stack span,
+html body .detail-card:hover .detail-stack span::before {
+  color: var(--on-primary) !important;
+  -webkit-text-fill-color: var(--on-primary) !important;
+  font-weight: 600 !important;
+}
+
+html body .detail-card:hover .detail-cta {
+  background: var(--on-primary) !important;
+  border-color: var(--on-primary) !important;
+  color: var(--primary) !important;
+  -webkit-text-fill-color: var(--primary) !important;
+}
+html.dark-theme body .detail-card:hover .detail-cta {
+  color: #c09f80 !important;
+  -webkit-text-fill-color: #c09f80 !important;
+}
+
+/* =====================================================
+PROJECT DETAIL: timeline badge gets proper pill padding
+===================================================== */
+html body .detail-badges {
+  gap: 12px !important;
+  align-items: center;
+}
+html body .detail-timeline,
+html body .detail-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px !important;
+  border-radius: 999px !important;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+html body .detail-timeline {
+  border: 1px solid var(--border) !important;
+  background: transparent;
+}
+
+/* =====================================================
+PROJECTS: no rise, solid colour change only
+===================================================== */
+html body .project-grid .project-card.project-card {
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+html body .project-grid .project-card.project-card:hover {
+  transform: none !important;
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 16px 38px -12px color-mix(in srgb, var(--primary) 70%, transparent) !important;
+}
+html.dark-theme body .project-grid .project-card.project-card:hover {
+  background: #c09f80 !important;
+  border-color: #d7b897 !important;
+}
+
+/* no image zoom */
+html body .project-grid .project-card:hover .project-image img,
+html body .project-grid .project-card .project-image img {
+  transform: none !important;
+}
+
+/* text flips to contrast colour */
+html body .project-grid .project-card.project-card:hover .project-body,
+html body .project-grid .project-card.project-card:hover .project-body * {
+  color: var(--on-primary) !important;
+  -webkit-text-fill-color: var(--on-primary) !important;
+  border-color: color-mix(in srgb, var(--on-primary) 35%, transparent) !important;
+}
+
+/* timeline + "View details" button invert */
+html body .project-grid .project-card.project-card:hover .project-timeline,
+html body .project-grid .project-card.project-card:hover .project-github {
+  background: var(--on-primary) !important;
+  border-color: var(--on-primary) !important;
+  color: var(--primary) !important;
+  -webkit-text-fill-color: var(--primary) !important;
+  transform: none !important;
+}
+html.dark-theme body .project-grid .project-card.project-card:hover .project-timeline,
+html.dark-theme body .project-grid .project-card.project-card:hover .project-github {
+  color: #c09f80 !important;
+  -webkit-text-fill-color: #c09f80 !important;
+}

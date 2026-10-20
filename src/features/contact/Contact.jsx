@@ -1,7 +1,8 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Mail, Phone, MapPin, ArrowUpRight, Check, Copy } from "lucide-react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import socials, { contactExtras } from "../../data/socials";
+import References from "./References";
 import "./Contact.css";
 
 // Icon for each contact key (lucide icons accept strokeWidth, react-icons do not)
@@ -76,6 +77,8 @@ function Contact() {
             <ContactCard key={item.key} item={item} />
           ))}
         </div>
+
+        <References />
       </div>
     </section>
   );
